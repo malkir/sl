@@ -11,12 +11,12 @@ class ReverseGeo:
             location = self.geolocator.reverse((lat, lon), zoom=zoom)
             address = location.raw['address']
             result = {
-                'addressLines': address.get('house_number', '') + ', ' + address.get('road', ''),
+                'addressLines': address.get('house_number', 'REQUIRED') + ', ' + address.get('road', ''),
                 'locality': address.get('town', ''),
                 'administrativeArea': address.get('state', ''),
-                'administrativeAreaCode': address.get('ISO3166-2-lvl4', '').split('-')[1], # Split from eg. US-CA
+                'administrativeAreaCode': address.get('ISO3166-2-lvl4', 'REQUIRED').split('-')[1], # Split from eg. US-CA
                 'region': address.get('country', ''),
-                'regionCode': address.get('ISO3166-2-lvl4', '').split('-')[0], # Split from eg. US-CA
+                'regionCode': address.get('ISO3166-2-lvl4', 'REQUIRED').split('-')[0], # Split from eg. US-CA
                 'postalCode': address.get('postcode', ''),
                 'metadata': metadata,
                 'formattedAddress': location.address,
