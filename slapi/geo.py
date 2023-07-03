@@ -11,7 +11,7 @@ class ReverseGeo:
             location = self.geolocator.reverse((lat, lon), zoom=zoom)
             address = location.raw['address']
             result = {
-                'addressLines': address.get('house_number', 'REQUIRED') + ', ' + address.get('road', ''),
+                'addressLines': [address.get('house_number', 'REQUIRED') + ', ' + address.get('road', '')],
                 'locality': address.get('town', ''),
                 'administrativeArea': address.get('state', ''),
                 'administrativeAreaCode': address.get('ISO3166-2-lvl4', 'REQUIRED').split('-')[1], # Split from eg. US-CA
@@ -20,11 +20,11 @@ class ReverseGeo:
                 'postalCode': address.get('postcode', ''),
                 'metadata': metadata,
                 'formattedAddress': location.address,
-                'latitude': round(location.latitude, 2),
-                'longitude': round(location.longitude, 2)
+                'latitude': round(location.latitude, 14), # TODO: How many decimal places?
+                'longitude': round(location.longitude, 14) # TODO: How many decimal places?
             }
-            return(address)
-            #return json.dumps(result)
+            #return(address)
+            return json.dumps(result)
         except GeocoderTimedOut:
             return self.reverse_geocode(lat, lon, zoom)
 
