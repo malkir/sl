@@ -17,6 +17,6 @@ if [[ -f ${VENV_ACTIVATE} ]]; then
   set +x
   echo "Activating ${VENV_ACTIVATE}"
   source ${VENV_ACTIVATE}
-  ./slvenv/bin/python3 -m pip insall poetry
+  ./slvenv/bin/python3 -m pip install poetry
 fi
 
