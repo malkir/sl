@@ -11,3 +11,5 @@ authors = ["Daniel Collins <daniel.collins@spacex.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 requests = "^2.31.0"
+geopy = "^2.3.0"
+configparser = "^5.3.0"

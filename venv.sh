@@ -1,7 +1,10 @@
 #!/bin/bash
+# NOT NECESSARY WITH POETRY. JUST RUN `poetry shell`
+
+# Legacy:
 # Source this file to initialize the venv and install deps
 # To generate a dev requirements, run:
-#   pip-compile requirements.in -o requirements.txt
+# poetry export --without-hashes -o requirements.in
 GIT_DIR="/home/${USER}/git/slapi"
 VENV_DIR="${GIT_DIR}/slvenv"
 VENV_ACTIVATE="${VENV_DIR}/bin/activate"
