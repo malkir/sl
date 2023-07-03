@@ -7,3 +7,7 @@ name = "slapi"
 version = "0.0.1"
 description = "Basic wrapper for Starlink API"
 authors = ["Daniel Collins <daniel.collins@spacex.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "^2.31.0"
